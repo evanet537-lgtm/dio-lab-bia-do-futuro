@@ -22,8 +22,6 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt
 
-### Como os dados são usados no prompt?
-> Os dados vão no system prompt? São consultados dinamicamente?
 Carregando os arquivos via código, como no exemplo abaixo:
 ```python
 import pandas as pd
@@ -38,15 +36,12 @@ with open('data/perfil_investidor.json', 'r', encoding='utf-8') as f:
  perfil = json.load(f)
 with open('data/produtos financeiros.json', 'r', encoding='utf-8') as f:
  produtos = json.load(f)
-
 ```
 
----
+### Como os dados são usados no prompt?
+> Os dados vão no system prompt? São consultados dinamicamente?
 
-## Exemplo de Contexto Montado
-
-> Mostre um exemplo de como os dados são formatados para o agente.
-
+Dados são injetados no prompt
 ```
 Dados do Cliente:
 {
@@ -85,5 +80,30 @@ data,descricao,categoria,valor,tipo
 2025-10-15,Conta de Luz,moradia,180.00,saida
 2025-10-20,Academia,saude,99.00,saida
 2025-10-25,Combustível,transporte,250.00,saida
+...
+```
+
+
+
+---
+
+## Exemplo de Contexto Montado
+
+> Mostre um exemplo de como os dados são formatados para o agente.
+
+```
+DADOS DO CLIENTE:
+- Nome: João Silva
+- Perfil: Moderado
+- Objetivo: Construir reserva de emergência 
+- Reserva atual: R$ 10.000 (meta: R$ 15.000)
+
+RESUMO DE GASTOS: 
+- Moradia: R$ 1.380 
+- Alimentacão: R$ 570  
+- Transporte: R$ 295 
+- Saúde: R$ 188 
+- Lazer: R$ 55,90  
+- Total de saidas: R$ 2.488,90
 ...
 ```
