@@ -6,12 +6,11 @@ Esta pasta contém o código do seu agente financeiro.
 
 Todo o código fonte está no arquivo app.py
 
-## Exemplo de requirements.txt
+## Setup do Ollama 
 
 ```
-streamlit
-openai
-python-dotenv
+
+ollama run gpt-oss
 ```
 
 ## Como Rodar
